@@ -1,5 +1,5 @@
 ---
-
+import Style from "../components/Style.astro";
 ---
 
 <html lang="en">
@@ -8,9 +8,11 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <Style />
     <title>artimora</title>
   </head>
   <body>
-    <h1>artimora</h1>
+    <div class="left"></div>
+    <div class="right"></div>
   </body>
 </html>
