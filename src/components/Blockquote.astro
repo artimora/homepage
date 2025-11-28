@@ -40,7 +40,14 @@ const linkTitle = typeof title === "object" && title.display && title.href;
     {
       linkTitle && (
         <h3>
-          <a href={title.href}>{title.display}</a>
+          <a
+            href={title.href}
+            referrerpolicy="origin"
+            rel="noopener"
+            target="_blank"
+          >
+            {title.display}
+          </a>
         </h3>
       )
     }
