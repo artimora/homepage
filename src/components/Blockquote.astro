@@ -1,0 +1,51 @@
+---
+import { Badge } from "studiocms:ui/components";
+
+type Props = {
+  badges?: (
+    | {
+        label: string;
+        color: "primary" | "success" | "warning" | "danger" | "info" | "mono";
+      }
+    | string
+  )[];
+  title: string | { display: string; href: string };
+};
+
+const { badges = [], title } = Astro.props;
+
+const normalTitle = typeof title === "string";
+const linkTitle = typeof title === "object" && title.display && title.href;
+---
+
+<div class="badge">
+  {
+    badges.map((b) => {
+      if (typeof b === "string") {
+        return <Badge label={b} color="primary" variant="flat" />;
+      }
+
+      if (typeof b === "object" && b.label && b.color) {
+        return <Badge label={b.label} color={b.color} variant="flat" />;
+      }
+
+      return null;
+    })
+  }
+</div>
+
+<blockquote class="full">
+  <div class="push">
+    {normalTitle && <h3>{title}</h3>}
+    {
+      linkTitle && (
+        <h3>
+          <a href={title.href}>{title.display}</a>
+        </h3>
+      )
+    }
+    <p>
+      <slot />
+    </p>
+  </div>
+</blockquote>

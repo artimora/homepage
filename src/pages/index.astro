@@ -1,5 +1,6 @@
 ---
 import Style from "../components/Style.astro";
+import Blockquote from "../components/Blockquote.astro";
 ---
 
 <html lang="en">
@@ -12,7 +13,47 @@ import Style from "../components/Style.astro";
     <title>artimora</title>
   </head>
   <body>
-    <div class="left"></div>
-    <div class="right"></div>
+    <div class="card limit">
+      <h1 class="no-bottom-spacing">Artimora</h1>
+      <hr />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
+        accumsan commodo varius. Pellentesque dictum fermentum leo non egestas.
+        Morbi vel odio eu felis pharetra dapibus vitae non dolor. Nullam et
+        metus luctus, varius sem at, malesuada nibh. Pellentesque ut dictum
+        quam. Nam ut orci euismod enim venenatis cursus ac id velit. Ut pretium
+        tellus risus, ut pharetra ipsum lacinia a.
+      </p>
+      <h2 class="spacer-title no-bottom-spacing">Projects</h2>
+      <hr />
+      <Blockquote
+        title={{
+          display: "fdb",
+          href: "https://github.com/artimora/fdb/tree/main",
+        }}
+        badges={["Library", "JS/TS"]}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
+        accumsan commodo varius.
+      </Blockquote>
+      <Blockquote
+        title={{
+          display: "Kronos",
+          href: "https://github.com/artimora/kronos",
+        }}
+        badges={["Library", "C#"]}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
+        accumsan commodo varius.
+      </Blockquote>
+      <Blockquote title="Tarot Engine" badges={["Program", "Desktop", "C#"]}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
+        accumsan commodo varius.
+      </Blockquote>
+    </div>
   </body>
 </html>
