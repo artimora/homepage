@@ -6,10 +6,11 @@ type Props = {
     | {
         label: string;
         color: "primary" | "success" | "warning" | "danger" | "info" | "mono";
+        url?: string;
       }
     | string
   )[];
-  title: string | { display: string; href: string };
+  title?: string | { display: string; href: string } | undefined;
 };
 
 const { badges = [], title } = Astro.props;
@@ -25,8 +26,21 @@ const linkTitle = typeof title === "object" && title.display && title.href;
         return <Badge label={b} color="primary" variant="flat" />;
       }
 
-      if (typeof b === "object" && b.label && b.color) {
+      if (typeof b === "object" && b.label && b.color && !b.url) {
         return <Badge label={b.label} color={b.color} variant="flat" />;
+      }
+
+      if (typeof b === "object" && b.label && b.color && b.url) {
+        return (
+          <a
+            href={b.url}
+            referrerpolicy="origin"
+            rel="noopener"
+            target="_blank"
+          >
+            <Badge label={b.label} color={b.color} variant="flat" />
+          </a>
+        );
       }
 
       return null;
@@ -36,21 +50,26 @@ const linkTitle = typeof title === "object" && title.display && title.href;
 
 <blockquote class="full">
   <div class="push">
-    {normalTitle && <h3>{title}</h3>}
     {
-      linkTitle && (
-        <h3>
-          <a
-            href={title.href}
-            referrerpolicy="origin"
-            rel="noopener"
-            target="_blank"
-          >
-            {title.display}
-          </a>
-        </h3>
+      title !== undefined && (
+        <>
+          {normalTitle && <h3>{title}</h3>}
+          {linkTitle && (
+            <h3>
+              <a
+                href={title.href}
+                referrerpolicy="origin"
+                rel="noopener"
+                target="_blank"
+              >
+                {title.display}
+              </a>
+            </h3>
+          )}
+        </>
       )
     }
+
     <p>
       <slot />
     </p>

@@ -12,10 +12,16 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": [
+        "./src/*"
+      ]
     },
     "verbatimModuleSyntax": true,
     "moduleResolution": "Bundler",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "types": [
+      "bun-types",
+      "node"
+    ]
   }
 }

@@ -1,7 +1,10 @@
 ---
-import Blockquote from "@/components/Blockquote.astro";
 import BaseHead from "@/components/BaseHead.astro";
+import Blockquote from "@/components/Blockquote.astro";
+import GithubRepoBlockquote from "@/components/GithubRepoBlockquote.astro";
+import type { GithubUserInfo, GithubSocials } from "@/lib/github";
 import { createProps, type PageProps } from "@/lib/page-info";
+import { capitalizeFirstLetter, cachedFetchAs } from "@/lib/util";
 
 const props: PageProps = createProps({
   title: "home",
@@ -9,6 +12,14 @@ const props: PageProps = createProps({
     "artimora home page; sup, we make games. nothing here yet though",
   image: "banner.png",
 });
+
+const result = await cachedFetchAs<GithubUserInfo>(
+  "https://api.github.com/users/artimora"
+);
+
+const socials = await cachedFetchAs<GithubSocials>(
+  "https://api.github.com/users/artimora/social_accounts"
+);
 ---
 
 <html lang="en">
@@ -20,43 +31,31 @@ const props: PageProps = createProps({
       <h1 class="no-bottom-spacing">Artimora</h1>
       <hr />
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
-        accumsan commodo varius. Pellentesque dictum fermentum leo non egestas.
-        Morbi vel odio eu felis pharetra dapibus vitae non dolor. Nullam et
-        metus luctus, varius sem at, malesuada nibh. Pellentesque ut dictum
-        quam. Nam ut orci euismod enim venenatis cursus ac id velit. Ut pretium
-        tellus risus, ut pharetra ipsum lacinia a.
+        {result.bio}
       </p>
+      <h2 class="spacer-title no-bottom-spacing">Social</h2>
+      <hr />
+      {
+        socials.map((s) => {
+          return (
+            <Blockquote>
+              <h3>
+                <a href={s.url}>{capitalizeFirstLetter(s.provider)}</a>
+              </h3>
+            </Blockquote>
+          );
+        })
+      }
+      <Blockquote>
+        <h3>
+          <a href="mailto:contact@artimora.dev">Email</a>
+        </h3>
+      </Blockquote>
       <h2 class="spacer-title no-bottom-spacing">Projects</h2>
       <hr />
-      <Blockquote
-        title={{
-          display: "fdb",
-          href: "https://github.com/artimora/fdb/tree/main",
-        }}
-        badges={["Library", "JS/TS"]}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
-        accumsan commodo varius.
-      </Blockquote>
-      <Blockquote
-        title={{
-          display: "Kronos",
-          href: "https://github.com/artimora/kronos",
-        }}
-        badges={["Library", "C#"]}
-      >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
-        accumsan commodo varius.
-      </Blockquote>
-      <Blockquote title="Tarot Engine" badges={["Program", "Desktop", "C#"]}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-        imperdiet arcu dolor, molestie mollis felis ornare sit amet. Duis
-        accumsan commodo varius.
-      </Blockquote>
+      <GithubRepoBlockquote name="fdb" />
+      <GithubRepoBlockquote name="kronos" />
+      <GithubRepoBlockquote name="generator" />
     </div>
   </body>
 </html>

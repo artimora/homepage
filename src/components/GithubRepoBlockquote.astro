@@ -1,0 +1,35 @@
+---
+import { cachedFetchAs } from "@/lib/util";
+import Blockquote from "./Blockquote.astro";
+import type { GithubRepoInfo } from "@/lib/github";
+
+type Props = {
+  name: string;
+};
+
+const { name } = Astro.props;
+
+const result = await cachedFetchAs<GithubRepoInfo>(
+  `https://api.github.com/repos/artimora/${name}`
+);
+
+const badges: {
+  label: string;
+  color: "primary" | "success" | "warning" | "danger" | "info" | "mono";
+  url: string;
+}[] = result.topics.map((t) => ({
+  label: t,
+  color: "primary",
+  url: `https://github.com/topics/${t}`,
+}));
+---
+
+<Blockquote
+  title={{
+    display: result.name,
+    href: `https://github.com/artimora/${name}`,
+  }}
+  badges={badges}
+>
+  {result.description}
+</Blockquote>
