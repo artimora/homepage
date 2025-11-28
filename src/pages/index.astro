@@ -1,16 +1,19 @@
 ---
-import Style from "../components/Style.astro";
-import Blockquote from "../components/Blockquote.astro";
+import Blockquote from "@/components/Blockquote.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import { createProps, type PageProps } from "@/lib/page-info";
+
+const props: PageProps = createProps({
+  title: "home",
+  description:
+    "artimora home page; sup, we make games. nothing here yet though",
+  image: "banner.png",
+});
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <Style />
-    <title>artimora</title>
+    <BaseHead props={props} />
   </head>
   <body>
     <div class="card limit">
