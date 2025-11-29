@@ -19,7 +19,7 @@ const normalTitle = typeof title === "string";
 const linkTitle = typeof title === "object" && title.display && title.href;
 ---
 
-<div class="badge">
+<div class="badge show-on-desktop">
   {
     badges.map((b) => {
       if (typeof b === "string") {
