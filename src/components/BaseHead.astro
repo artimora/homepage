@@ -6,9 +6,9 @@ import Style from "./Style.astro";
 // props
 import type { PageProps } from "@/lib/page-info";
 
-interface Props {
+type Props = {
   props: PageProps;
-}
+};
 
 const { props } = Astro.props;
 
@@ -22,6 +22,8 @@ const image = new URL(props.pageInfo.image, Astro.url);
 const keywords = props.siteInfo.keywords.join(",");
 ---
 
+<Style />
+
 <!-- trans ition -->
 <ClientRouter />
 
@@ -34,8 +36,6 @@ const keywords = props.siteInfo.keywords.join(",");
 <meta name="keywords" content={keywords} />
 <meta name="robots" content={props.siteInfo.robots} />
 <meta name="license" content={props.siteInfo.license} />
-
-<Style />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
