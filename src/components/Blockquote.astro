@@ -19,36 +19,37 @@ const normalTitle = typeof title === "string";
 const linkTitle = typeof title === "object" && title.display && title.href;
 ---
 
-<div class="badge show-on-desktop">
-  {
-    badges.map((b) => {
-      if (typeof b === "string") {
-        return <Badge label={b} color="primary" variant="flat" />;
-      }
-
-      if (typeof b === "object" && b.label && b.color && !b.url) {
-        return <Badge label={b.label} color={b.color} variant="flat" />;
-      }
-
-      if (typeof b === "object" && b.label && b.color && b.url) {
-        return (
-          <a
-            href={b.url}
-            referrerpolicy="origin"
-            rel="noopener"
-            target="_blank"
-          >
-            <Badge label={b.label} color={b.color} variant="flat" />
-          </a>
-        );
-      }
-
-      return null;
-    })
-  }
-</div>
-
 <blockquote class="full">
+  <div class="badge show-on-desktop">
+    {
+      badges.map((b) => {
+        if (typeof b === "string") {
+          return <Badge label={b} color="primary" variant="flat" />;
+        }
+
+        if (typeof b === "object" && b.label && b.color && !b.url) {
+          return <Badge label={b.label} color={b.color} variant="flat" />;
+        }
+
+        if (typeof b === "object" && b.label && b.color && b.url) {
+          return (
+            <a
+              href={b.url}
+              referrerpolicy="origin"
+              rel="noopener"
+              target="_blank"
+              class="raw"
+            >
+              <Badge label={b.label} color={b.color} variant="flat" />
+            </a>
+          );
+        }
+
+        return null;
+      })
+    }
+  </div>
+
   <div class="push">
     {
       title !== undefined && (
