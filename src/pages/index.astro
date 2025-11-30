@@ -2,6 +2,7 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Blockquote from "@/components/Blockquote.astro";
 import GithubRepoBlockquote from "@/components/GithubRepoBlockquote.astro";
+import SocialBlockquote from "@/components/SocialBlockquote.astro";
 import type { GithubUserInfo, GithubSocials } from "@/lib/github";
 import { createProps, type PageProps } from "@/lib/page-info";
 import { capitalizeFirstLetter, cachedFetchAs } from "@/lib/util";
@@ -38,19 +39,19 @@ const socials = await cachedFetchAs<GithubSocials>(
       {
         socials.map((s) => {
           return (
-            <Blockquote>
-              <h3>
-                <a href={s.url}>{capitalizeFirstLetter(s.provider)}</a>
-              </h3>
-            </Blockquote>
+            <SocialBlockquote
+              icon={s.provider}
+              name={capitalizeFirstLetter(s.provider)}
+              url={s.url}
+            />
           );
         })
       }
-      <Blockquote>
-        <h3>
-          <a href="mailto:contact@artimora.dev">Email</a>
-        </h3>
-      </Blockquote>
+      <SocialBlockquote
+        icon="email"
+        name={"Email"}
+        url="mailto:contact@artimora.dev"
+      />
       <h2 class="spacer-title no-bottom-spacing">Projects</h2>
       <hr />
       <GithubRepoBlockquote name="fdb" />

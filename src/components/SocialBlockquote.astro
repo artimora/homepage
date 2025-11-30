@@ -1,0 +1,27 @@
+---
+import { type Icons } from "@/lib/socials";
+import Blockquote from "./Blockquote.astro";
+import SocialIcon from "./SocialIcon.astro";
+
+type Props = {
+  icon: Icons | string;
+  name: string;
+  url: string;
+};
+
+const { icon, name, url } = Astro.props as Props;
+---
+
+<Blockquote>
+  <h3>
+    <a
+      href={url}
+      referrerpolicy="origin"
+      rel="noopener"
+      target="_blank"
+      class="social"
+    >
+      <SocialIcon icon={icon} />{name}
+    </a>
+  </h3>
+</Blockquote>

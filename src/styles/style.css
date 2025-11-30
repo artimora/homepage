@@ -327,3 +327,8 @@ blockquote.onlybottomspacing {
 a.raw {
   text-decoration: none;
 }
+
+.icon {
+  transform: translateY(4px);
+  margin-right: 4px;
+}
