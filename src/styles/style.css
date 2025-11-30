@@ -332,3 +332,8 @@ a.raw {
   transform: translateY(4px);
   margin-right: 4px;
 }
+
+h3.social {
+  margin: 8px;
+  transform: translateY(-2px);
+}
