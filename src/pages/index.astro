@@ -1,11 +1,6 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
-import Blockquote from "@/components/Blockquote.astro";
-import GithubRepoBlockquote from "@/components/GithubRepoBlockquote.astro";
-import SocialBlockquote from "@/components/SocialBlockquote.astro";
-import type { GithubUserInfo, GithubSocials } from "@/lib/github";
 import { createProps, type PageProps } from "@/lib/page-info";
-import { capitalizeFirstLetter, cachedFetchAs } from "@/lib/util";
 
 const props: PageProps = createProps({
   title: "home",
@@ -13,14 +8,6 @@ const props: PageProps = createProps({
     "artimora home page; sup, we make games. nothing here yet though",
   image: "banner.png",
 });
-
-const result = await cachedFetchAs<GithubUserInfo>(
-  "https://api.github.com/users/artimora"
-);
-
-const socials = await cachedFetchAs<GithubSocials>(
-  "https://api.github.com/users/artimora/social_accounts"
-);
 ---
 
 <html lang="en">
@@ -28,36 +15,52 @@ const socials = await cachedFetchAs<GithubSocials>(
     <BaseHead props={props} />
   </head>
   <body>
-    <div class="card limit">
-      <h1 class="no-bottom-spacing">Artimora</h1>
-      <hr />
-      <p>
-        {result.bio}
-      </p>
-      <h2 class="spacer-title no-bottom-spacing">Social</h2>
-      <hr />
-      {
-        socials.map((s) => {
-          return (
-            <SocialBlockquote
-              icon={s.provider}
-              name={capitalizeFirstLetter(s.provider)}
-              url={s.url}
-            />
-          );
-        })
-      }
-      <SocialBlockquote
-        icon="email"
-        name={"Email"}
-        url="mailto:contact@artimora.dev"
-      />
-      <h2 class="spacer-title no-bottom-spacing">Projects</h2>
-      <hr />
-      <GithubRepoBlockquote name="dbs" />
-      <GithubRepoBlockquote name="kronos" />
-      <GithubRepoBlockquote name="generator" />
-      <GithubRepoBlockquote name="hangar" />
-    </div>
+    <main class="center">
+      <h1>artimora</h1>
+      <p>sup, we <i>(hopefully will)</i> make games.</p>
+      <p>nothing here yet though.</p>
+
+      <ul>
+        <li>
+          <p>socials</p>
+          <ul>
+            <li>
+              <a href="https://x.com/artimorastudios">twitter</a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/artimorastudios/">instagram</a>
+            </li>
+            <li>
+              <a href="https://github.com/artimora">github</a>
+            </li>
+            <li>
+              <a href="mailto:contact@artimora.dev">email</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>projects</p>
+          <ul>
+            <li>
+              <p>
+                <a href="https://github.com/artimora/dbs">dbs</a> - db utility libraries
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="https://github.com/artimora/kronos">kronos</a> - thin, easy
+                to use, web framework
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="https://github.com/artimora/hangar">hangar</a> - simple dev
+                server powered by vite and hono
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>
