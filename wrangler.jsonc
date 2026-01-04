@@ -1,16 +1,21 @@
 {
 	"main": "dist/_worker.js/index.js",
 	"name": "homepage",
-  "compatibility_date": "2025-11-28",
-  "compatibility_flags": [
-    "nodejs_compat",
-    "global_fetch_strictly_public"
-  ],
+	"compatibility_date": "2025-11-28",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"assets": {
 		"binding": "ASSETS",
 		"directory": "./dist"
 	},
 	"observability": {
-    "enabled": true
-  }
+		"enabled": true
+	},
+	"workers_dev": false,
+	"routes": [
+		{
+			"pattern": "artimora.dev",
+			"zone_id": "132f3761a621afa9a80922b6eac55351",
+			"custom_domain": true
+		}
+	]
 }
