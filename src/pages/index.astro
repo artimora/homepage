@@ -1,5 +1,6 @@
 ---
 import BaseHead from "@/components/BaseHead.astro";
+import LinkSection from "@/components/LinkSection.astro";
 import { createProps, type PageProps } from "@/lib/page-info";
 
 const props: PageProps = createProps({
@@ -23,33 +24,33 @@ const props: PageProps = createProps({
       <ul>
         <li>
           <p>socials</p>
-          <!-- <ul>
-            <li>
-              <a href="https://x.com/artimorastudios" target="_blank">twitter</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/artimorastudios/"
-                target="_blank">instagram</a
-              >
-            </li>
-            <li>
-              <a href="https://github.com/artimora" target="_blank">github</a>
-            </li>
-            <li>
-              <a href="mailto:contact@artimora.dev" target="_blank">email</a>
-            </li>
-            <li>
-              <a
-                href="https://modrinth.com/organization/artimora"
-                target="_blank">modrinth</a
-              >
-            </li>
-          </ul> -->
+          <LinkSection
+            links={[
+              { href: "https://x.com/artimorastudios", label: "twitter" },
+              {
+                href: "https://www.instagram.com/artimorastudios/",
+                label: "instagram",
+              },
+              { href: "https://github.com/artimora", label: "github" },
+              { href: "mailto:contact@artimora.dev", label: "email" },
+              {
+                href: "https://modrinth.com/organization/artimora",
+                label: "modrinth",
+              },
+            ]}
+          />
         </li>
         <li>
           <p>projects</p>
+          <LinkSection
+            links={[
+              {
+                href: "https://github.com/artimora/dbs",
+                label: "dbs",
+                description: "db utility libraries",
+              },
+            ]}
+          />
           <ul>
             <li>
               <p>
