@@ -18,7 +18,9 @@ const props: PageProps = createProps({
   <body class="center">
     <main>
       <h1>artimora</h1>
-      <p>sup, we <i>(hopefully will)</i> make games.</p>
+      <p>
+        sup, we <i>(hopefully will)</i>make games.
+      </p>
       <p>nothing here yet though.</p>
 
       <ul>
@@ -26,13 +28,22 @@ const props: PageProps = createProps({
           <p>socials</p>
           <LinkSection
             links={[
-              { href: "https://x.com/artimorastudios", label: "twitter" },
+              {
+                href: "https://x.com/artimorastudios",
+                label: "twitter",
+              },
               {
                 href: "https://www.instagram.com/artimorastudios/",
                 label: "instagram",
               },
-              { href: "https://github.com/artimora", label: "github" },
-              { href: "mailto:contact@artimora.dev", label: "email" },
+              {
+                href: "https://github.com/artimora",
+                label: "github",
+              },
+              {
+                href: "mailto:contact@artimora.dev",
+                label: "email",
+              },
               {
                 href: "https://modrinth.com/organization/artimora",
                 label: "modrinth",
@@ -62,9 +73,41 @@ const props: PageProps = createProps({
                 description: "db utility libraries",
               },
               {
-                href: "https://github.com/artimora/kronos",
                 label: "kronos",
                 description: "thin, easy to use, web framework",
+                links: [
+                  {
+                    href: "https://github.com/artimora/kronos",
+                    label: "source",
+                  },
+                  {
+                    href: "https://www.nuget.org/packages/Artimora.Kronos",
+                    label: "nuget",
+                  },
+                ],
+              },
+              {
+                label: "pleiades",
+                description:
+                  "simple (and thin) message based networking libraries",
+                links: [
+                  {
+                    href: "https://github.com/artimora/maia",
+                    label: "maia source (C#)",
+                  },
+                  {
+                    href: "https://www.nuget.org/packages/Artimora.Maia/",
+                    label: "maia nuget",
+                  },
+                  {
+                    href: "https://github.com/artimora/electra",
+                    label: "electra source (typescript)",
+                  },
+                  {
+                    href: "https://www.npmjs.com/package/@artimora/electra",
+                    label: "electra npm",
+                  },
+                ],
               },
               {
                 href: "https://github.com/artimora/hangar",
