@@ -1,27 +1,22 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
-  "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
-    "verbatimModuleSyntax": true,
-    "moduleResolution": "Bundler",
-    "strictNullChecks": true,
-    "types": [
-      "bun-types",
-      "node"
-    ]
-  }
+	"compilerOptions": {
+		"strict": true,
+		"target": "esnext",
+		"noEmit": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"skipLibCheck": true,
+		"noUncheckedIndexedAccess": true,
+		"exactOptionalPropertyTypes": true,
+		"jsx": "react-jsx",
+		"rootDir": "src",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src"],
+	"exclude": ["node_modules", "dist"]
 }

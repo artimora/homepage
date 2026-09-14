@@ -1,0 +1,122 @@
+:root {
+	/* primary colors */
+	--black: rgb(9, 8, 9);
+	--white: rgb(253, 247, 250);
+	--gray: rgb(20, 19, 23);
+	--light-gray: rgb(30, 30, 36);
+	--lighter-gray: rgb(86, 85, 90);
+
+	/* accent colors */
+	--blush-pink: rgb(253, 197, 245);
+	--mauve: rgb(247, 174, 248);
+	--bright-lavender: rgb(192, 140, 232);
+	--wisteria-blue: rgb(128, 147, 241);
+	--sky-blue: rgb(114, 221, 247);
+	--lavender-mist: rgb(244, 237, 254);
+}
+
+@font-face {
+	font-family: OfficeCodePro;
+	src: url("/fonts/officecodepro-regular.otf") format("opentype");
+}
+
+html,
+body {
+	color: var(--gray);
+	background: var(--lavender-mist);
+	@media (prefers-color-scheme: dark) {
+		color: var(--lavender-mist);
+		background: var(--gray);
+	}
+
+	font-family: OfficeCodePro, monospace;
+	font-optical-sizing: auto;
+	font-variation-settings: "slnt" 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
+
+a {
+	cursor: pointer;
+
+	color: var(--white);
+
+	text-decoration: none;
+}
+
+a:link {
+	color: var(--wisteria-blue);
+}
+
+a:visited {
+	color: var(--bright-lavender);
+}
+
+a:hover {
+	color: var(--mauve);
+	text-decoration: underline;
+}
+
+a:active {
+	color: var(--sky-blue);
+}
+
+div.close p {
+	margin: 2px 0px 2px 0px;
+}
+
+p.close {
+	margin: 2px 0px 2px 0px;
+}
+
+.toppad {
+	padding-top: 8px;
+}
+
+.subsection {
+	position: absolute;
+	left: 128px; /* TODO: make this dynamic depending on the text maybe? */
+}
+
+a.underlined {
+	text-decoration: underline;
+}
+
+.cursor.default {
+	cursor: default;
+}
+
+ul.content {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.content li {
+	margin: 4px;
+}
+
+.link-external {
+	height: 15px;
+	width: 15px;
+}
+
+.main .header {
+	font-size: 1.6em;
+	margin-bottom: 8px;
+}
+
+.main * {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.main {
+	margin-bottom: 16px;
+}
