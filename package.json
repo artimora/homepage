@@ -4,7 +4,7 @@
 	"version": "0.1.0",
 	"scripts": {
 		"dev": "WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku dev",
-		"build": "CLOUDFLARE=1 WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku build",
+		"build": "CLOUDFLARE=1 WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku build && wrangler deploy --outdir=dist --dry-run",
 		"deploy": "CLOUDFLARE=1 WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku build && wrangler deploy"
 	},
 	"dependencies": {
