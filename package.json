@@ -1,27 +1,31 @@
 {
-  "name": "@artimora/homepage",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "bunx --bun astro dev",
-    "build": "bunx --bun astro build && bun jampack ./dist",
-    "preview": "bunx --bun astro preview"
-  },
-  "dependencies": {
-    "@astrojs/cloudflare": "^12.6.12",
-    "@astrojs/react": "^4.4.2",
-    "@astrojs/sitemap": "^3.6.0",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.16.3",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "vite": "^7.2.4"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.3.8",
-    "@divriots/jampack": "^0.34.0",
-    "@types/bun": "^1.3.3",
-    "ultracite": "6.3.8"
-  }
+	"name": "@artimora/homepage",
+	"type": "module",
+	"version": "0.1.0",
+	"scripts": {
+		"dev": "WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku dev",
+		"build": "CLOUDFLARE=1 WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku build",
+		"deploy": "CLOUDFLARE=1 WAKU_PUBLIC_GIT_HASH=$(git rev-parse --short HEAD) waku build && wrangler deploy"
+	},
+	"dependencies": {
+		"@nanostores/react": "^2.0.1",
+		"nanostores": "^1.5.3",
+		"react": "~19.3.0",
+		"react-dom": "~19.3.0",
+		"react-server-dom-webpack": "~19.3.0",
+		"vite-tsconfig-paths": "^6.1.1",
+		"waku": "1.0.0-rc.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.5.13",
+		"@cloudflare/vite-plugin": "^1.54.9",
+		"@rolldown/plugin-babel": "^0.2.4",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"@vitejs/plugin-react": "^6.1.1",
+		"babel-plugin-react-compiler": "^1.0.0",
+		"typescript": "^7.0.2",
+		"ultracite": "7.11.1",
+		"wrangler": "^4.131.2"
+	}
 }

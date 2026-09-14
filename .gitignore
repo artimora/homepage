@@ -9,5 +9,10 @@ pnpm-debug.log*
 .env.production
 .DS_Store
 .idea/
-.cache
-.jampack
+deno.lock
+src/pages.gen.ts
+worker-configuration.d.ts
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
