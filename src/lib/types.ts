@@ -4,6 +4,7 @@ export type HomepageData = {
 		title: string;
 		description: string;
 		site: string;
+		color: `#${string}`;
 
 		// images
 		icon: `${string}.png`;

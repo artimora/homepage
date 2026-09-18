@@ -74,6 +74,10 @@ export function PageMetaData({ pageName }: { pageName: string }) {
 			<meta name="description" content={data.page.description} />
 			<link rel="icon" type="image/png" href={data.page.icon} />
 			<title>{actualPageName}</title>
+
+			{/* <!-- Color Themes --> */}
+			<meta name="theme-color" content={data.page.color} />
+			<meta name="color-scheme" content="light dark" />
 		</div>
 	);
 }

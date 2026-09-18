@@ -6,6 +6,7 @@ export const data: HomepageData = {
 		title: "artimora",
 		description: "sup, we make games. nothing here yet though",
 		site: "https://artimora.dev",
+		color: "#8093f1",
 
 		// images
 		icon: "/images/favicon.png",
