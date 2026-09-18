@@ -24,7 +24,7 @@ export function PageMetaData({ pageName }: { pageName: string }) {
 			{/* <!-- Open Graph / Facebook --> */}
 			<meta property="og:type" content="website" />
 			<meta property="og:url" content={canonicalURL.href} />
-			<meta property="og:title" content={data.page.title} />
+			<meta property="og:title" content={actualPageName} />
 			<meta property="og:description" content={data.page.description} />
 			<meta property="og:site_name" content={data.page.title} />
 			<meta property="og:image" content={image.href} />
