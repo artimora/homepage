@@ -39,7 +39,7 @@ function PageMetaData() {
 
 	const canonicalURL = new URL(url.pathname, data.page.site);
 
-	const image = new URL(data.page.image, url);
+	const image = new URL(data.page.image, canonicalURL);
 	const keywords = data.page.keywords.join(",");
 
 	return (
@@ -53,7 +53,7 @@ function PageMetaData() {
 
 			{/* <!-- Open Graph / Facebook --> */}
 			<meta property="og:type" content="website" />
-			<meta property="og:url" content={url.href} />
+			<meta property="og:url" content={canonicalURL.href} />
 			<meta property="og:title" content={data.page.title} />
 			<meta property="og:description" content={data.page.description} />
 			<meta property="og:site_name" content={data.page.title} />
@@ -62,7 +62,7 @@ function PageMetaData() {
 
 			{/* <!-- Twitter --> */}
 
-			<meta property="twitter:url" content={url.href} />
+			<meta property="twitter:url" content={canonicalURL.href} />
 			<meta property="twitter:title" content={data.page.title} />
 			<meta
 				property="twitter:description"

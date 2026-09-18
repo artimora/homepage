@@ -10,8 +10,6 @@ export default async function HomePage() {
 
 	return (
 		<div>
-			<title>{data.page.title}</title>
-
 			<div className="main">
 				<h1 className="header">{data.info.name}</h1>
 				<p
