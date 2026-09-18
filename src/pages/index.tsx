@@ -1,4 +1,5 @@
 import { ExternalLink } from "@/components/external-link";
+import { PageMetaData } from "@/components/page-meta-data";
 import { Content } from "@/components/sections/content";
 import { Holder } from "@/components/sections/holder";
 import { Link } from "@/components/sections/link";
@@ -10,6 +11,8 @@ export default async function HomePage() {
 
 	return (
 		<div>
+			<PageMetaData pageName="homepage" />
+
 			<div className="main">
 				<h1 className="header">{data.info.name}</h1>
 				<p
